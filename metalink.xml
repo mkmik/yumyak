@@ -12,7 +12,7 @@
       </verification>
       <resources maxconnections="1">
         <url protocol="http" type="http" location="ES" preference="100" >http://{{.Host}}/repo/repodata/repomd.xml</url>
-        <url protocol="http" type="http" location="ES" preference="99"  >http://{{.Host}}/mirror1/repodata/repomd.xml</url>
+        <url protocol="http" type="http" location="ES" preference="99"  >http://mirror1:8080/mirror1/repodata/repomd.xml</url>
       </resources>
     </file>
   </files>
