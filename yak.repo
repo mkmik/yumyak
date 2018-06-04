@@ -1,0 +1,3 @@
+[yak]
+name = yak
+baseurl = http://{{.Host}}/repo
