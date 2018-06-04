@@ -16,7 +16,7 @@ import (
 var (
 	laddr = flag.String("p", ":8080", "listen address")
 
-	expanded = regexp.MustCompile(`.*\.(repo|metalink.xml)$`)
+	expanded = regexp.MustCompile(`(.*\.repo|metalink.xml)$`)
 )
 
 // the expander middleware expands the response of a selected
@@ -41,6 +41,9 @@ func (e *expander) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			if k != "Content-Length" {
 				w.Header()[k] = v
 			}
+		}
+		if r.URL.Path == "/metalink.xml" {
+			w.Header().Set("Content-Type", "application/metalink+xml")
 		}
 		t, err := template.New("").Parse(rec.Body.String())
 		if err != nil {

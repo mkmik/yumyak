@@ -1,3 +1,6 @@
 [yak]
-name = yak
-baseurl = http://{{.Host}}/repo
+name=yak
+metalink=http://{{.Host}}/metalink.xml
+failovermethod=priority
+enabled=1
+gpgcheck=0
